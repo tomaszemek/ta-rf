@@ -16,15 +16,15 @@ Preferably use docker to run the whole test execution environment.
 
 4. Run the tests
 
-NOTE: the docker image to be created is quite big in size, about 4.5 GB in the end
+    NOTE: the docker image to be created is quite big in size, about 4.5 GB in the end
 
     ```console
-        docker run \
-            -v ./results:/opt/robotframework/reports:Z \
-            -v ./tests:/opt/robotframework/tests:Z \
-            -v ./resources:/opt/robotframework/resources:Z \
-            -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
-            ppodgorsek/robot-framework:latest
+    docker run \
+        -v ./results:/opt/robotframework/reports:Z \
+        -v ./tests:/opt/robotframework/tests:Z \
+        -v ./resources:/opt/robotframework/resources:Z \
+        -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
+        ppodgorsek/robot-framework:latest
     ```
 
 ## Manual
@@ -40,8 +40,8 @@ NOTE: the docker image to be created is quite big in size, about 4.5 GB in the e
     Crate one to isolate local runtime environment from interfering with other ones:
 
     ```console
-        cd ta-rf
-        python -m venv .venv
+    cd ta-rf
+    python -m venv .venv
     ```
 
 4. Robot framework & libraries
@@ -49,9 +49,9 @@ NOTE: the docker image to be created is quite big in size, about 4.5 GB in the e
     Activate the virtual environment and install required libraries into it:
 
     ```console
-        cd ta-rf
-        source ./.venv/bin/activate
-        pip install -r requirements.txt
+    cd ta-rf
+    source ./.venv/bin/activate
+    pip install -r requirements.txt
     ```
 
 5. VS Code settings - Robocorp plugin
@@ -59,9 +59,9 @@ NOTE: the docker image to be created is quite big in size, about 4.5 GB in the e
     Enable resource path resolution from within the IDE:
 
     ```console
-        "robotcode.robot.pythonPath": [
-            "./"
-            ],
+    "robotcode.robot.pythonPath": [
+        "./"
+        ],
     ```
 
 6. Set valid API keys in the resources/secrets/APIKey.secret.resource
