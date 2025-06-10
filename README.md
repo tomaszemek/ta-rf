@@ -10,7 +10,11 @@ Preferably use docker to run the whole test execution environment.
 
 1. Install docker environment as per OS specific instructions
 
-2. Run the tests using the recommended docker image:
+2. Clone the ta-rf repo 
+
+3. Set valid API keys in the resources/secrets/APIKey.secret.resource
+
+4. Run the tests using the recommended docker image:
 
     ```console
         cd ta-rf
@@ -26,7 +30,9 @@ Preferably use docker to run the whole test execution environment.
 
     System wide Python interpreter per your OS specific instruction
 
-2. Virtual environment
+2. Clone the ta-rf repo
+
+3. Virtual environment
 
     Crate one to isolate local runtime environment from interfering with other ones:
 
@@ -35,7 +41,7 @@ Preferably use docker to run the whole test execution environment.
         python -m venv .venv
     ```
 
-3. Robot framework & libraries
+4. Robot framework & libraries
 
     Activate the virtual environment and install required libraries into it:
 
@@ -45,7 +51,7 @@ Preferably use docker to run the whole test execution environment.
         pip install -r requirements.txt
     ```
 
-4. VS Code settings - Robocorp plugin
+5. VS Code settings - Robocorp plugin
 
     Enable resource path resolution from within the IDE:
 
@@ -54,6 +60,11 @@ Preferably use docker to run the whole test execution environment.
             "./"
             ],
     ```
+
+6. Set valid API keys in the resources/secrets/APIKey.secret.resource
+
+7. Run the tests from VS Code or from terminal
+
 
 # Documentation
 
