@@ -26,6 +26,7 @@ Preferably use docker to run the whole test execution environment.
         -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
         ppodgorsek/robot-framework:latest
     ```
+5. Test logs and reports can be found in ./results folder.
 
 ## Manual
 
