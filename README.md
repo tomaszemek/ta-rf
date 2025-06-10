@@ -1,1 +1,60 @@
 # ta-rf
+
+Simple Test Automation project demonstrating use of Robot Framework for API and acceptance testing
+
+# Usage
+
+# Docker
+
+Preferably use docker to run the whole test execution environment.
+
+1. Install docker environment as per OS specific instructions
+
+2. Run the tests using the recommended docker image:
+
+cd ta-rf
+docker run \
+    -v ./results:/opt/robotframework/reports:Z \
+    -v ./tests:/opt/robotframework/tests:Z \
+    ppodgorsek/robot-framework:latest
+
+
+# Manual
+
+# Python
+system wide Python interpreter per your OS specific instruction
+
+# Virtual environment
+# helps to isolate local runtime environment from interfering with other ones
+cd ta-rf
+python -m venv .venv
+
+# Robot framework & libraries
+cd ta-rf
+source ./.venv/bin/activate
+pip install -r requirements.txt
+
+# VS Code settings
+Robocorp plugin
+
+enable resource path resolution from within the IDE:
+"robotcode.robot.pythonPath": [
+    "./"
+    ],
+
+
+# Documentation
+
+# RF Requests library
+https://docs.robotframework.org/docs/different_libraries/requests
+
+
+
+
+# TODO
+suppress leaking API key values to logfiles, some background:
+https://forum.robotframework.org/t/secret-handling-using-robot/5417/3
+https://stackoverflow.com/questions/49237787/how-to-hide-login-credentials-in-log-html-file-in-robotframework
+https://github.com/robotframework/robotframework/issues/4537
+https://github.com/Snooz82/robotframework-crypto
+

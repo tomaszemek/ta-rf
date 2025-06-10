@@ -1,0 +1,3 @@
+*** Variables ***
+${HTTP_STATUS_OK}    200
+${HTTP_STATUS_UNAUTHORIZED}    401
