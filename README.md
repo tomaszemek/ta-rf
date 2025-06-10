@@ -4,7 +4,7 @@ Simple Test Automation project demonstrating use of Robot Framework for API and 
 
 # Usage
 
-# Docker
+## Docker
 
 Preferably use docker to run the whole test execution environment.
 
@@ -12,56 +12,57 @@ Preferably use docker to run the whole test execution environment.
 
 2. Run the tests using the recommended docker image:
 
-```console
-    cd ta-rf
-    docker run \
-        -v ./results:/opt/robotframework/reports:Z \
-        -v ./tests:/opt/robotframework/tests:Z \
-        ppodgorsek/robot-framework:latest
-```
+    ```console
+        cd ta-rf
+        docker run \
+            -v ./results:/opt/robotframework/reports:Z \
+            -v ./tests:/opt/robotframework/tests:Z \
+            ppodgorsek/robot-framework:latest
+    ```
 
-# Manual
+## Manual
 
-# Python
-system wide Python interpreter per your OS specific instruction
+1. Python
 
-# Virtual environment
+    System wide Python interpreter per your OS specific instruction
 
-helps to isolate local runtime environment from interfering with other ones:
+2. Virtual environment
 
-```console
-    cd ta-rf
-    python -m venv .venv
-```
+    Crate one to isolate local runtime environment from interfering with other ones:
 
-# Robot framework & libraries
+    ```console
+        cd ta-rf
+        python -m venv .venv
+    ```
 
-Activate the virtual environment and install required libraries into it:
+3. Robot framework & libraries
 
-```console
-    cd ta-rf
-    source ./.venv/bin/activate
-    pip install -r requirements.txt
-```
+    Activate the virtual environment and install required libraries into it:
 
-# VS Code settings
-Robocorp plugin
+    ```console
+        cd ta-rf
+        source ./.venv/bin/activate
+        pip install -r requirements.txt
+    ```
 
-enable resource path resolution from within the IDE:
+4. VS Code settings - Robocorp plugin
 
-```console
-    "robotcode.robot.pythonPath": [
-        "./"
-        ],
-```
+    Enable resource path resolution from within the IDE:
+
+    ```console
+        "robotcode.robot.pythonPath": [
+            "./"
+            ],
+    ```
 
 # Documentation
 
-# RF Requests library
+## RF Requests library
 https://docs.robotframework.org/docs/different_libraries/requests
 
 
 # TODO
+
 suppress leaking API key values to logfiles, some background:
 
 - https://forum.robotframework.org/t/secret-handling-using-robot/5417/3
