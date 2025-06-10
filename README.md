@@ -12,9 +12,9 @@ Preferably use docker to run the whole test execution environment.
 
 2. Clone the ta-rf repo 
 
-3. Set valid API keys in the resources/secrets/APIKey.secret.resource
+3. Set valid API keys in the WeatherAPIKey.secret.resource and GeolocateAPIKey.secret.resource
 
-4. Run the tests
+4. Run the tests:
 
     NOTE: the docker image to be created is quite big in size, about 4.5 GB in the end
 
@@ -26,7 +26,7 @@ Preferably use docker to run the whole test execution environment.
         -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
         ppodgorsek/robot-framework:latest
     ```
-5. Test logs and reports can be found in ./results folder.
+5. Test logs and reports can be found in ./results folder
 
 ## Manual
 
@@ -65,7 +65,7 @@ Preferably use docker to run the whole test execution environment.
         ],
     ```
 
-6. Set valid API keys in the resources/secrets/APIKey.secret.resource
+6. Set valid API keys in the WeatherAPIKey.secret.resource and GeolocateAPIKey.secret.resource
 
 7. Run the tests from VS Code or from terminal
 
