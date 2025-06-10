@@ -12,12 +12,13 @@ Preferably use docker to run the whole test execution environment.
 
 2. Run the tests using the recommended docker image:
 
-cd ta-rf
-docker run \
-    -v ./results:/opt/robotframework/reports:Z \
-    -v ./tests:/opt/robotframework/tests:Z \
-    ppodgorsek/robot-framework:latest
-
+```console
+    cd ta-rf
+    docker run \
+        -v ./results:/opt/robotframework/reports:Z \
+        -v ./tests:/opt/robotframework/tests:Z \
+        ppodgorsek/robot-framework:latest
+```
 
 # Manual
 
@@ -25,30 +26,39 @@ docker run \
 system wide Python interpreter per your OS specific instruction
 
 # Virtual environment
-# helps to isolate local runtime environment from interfering with other ones
-cd ta-rf
-python -m venv .venv
+
+helps to isolate local runtime environment from interfering with other ones:
+
+```console
+    cd ta-rf
+    python -m venv .venv
+```
 
 # Robot framework & libraries
-cd ta-rf
-source ./.venv/bin/activate
-pip install -r requirements.txt
+
+Activate the virtual environment and install required libraries into it:
+
+```console
+    cd ta-rf
+    source ./.venv/bin/activate
+    pip install -r requirements.txt
+```
 
 # VS Code settings
 Robocorp plugin
 
 enable resource path resolution from within the IDE:
-"robotcode.robot.pythonPath": [
-    "./"
-    ],
 
+```console
+    "robotcode.robot.pythonPath": [
+        "./"
+        ],
+```
 
 # Documentation
 
 # RF Requests library
 https://docs.robotframework.org/docs/different_libraries/requests
-
-
 
 
 # TODO
