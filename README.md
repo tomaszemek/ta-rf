@@ -63,8 +63,9 @@ https://docs.robotframework.org/docs/different_libraries/requests
 
 # TODO
 suppress leaking API key values to logfiles, some background:
-https://forum.robotframework.org/t/secret-handling-using-robot/5417/3
-https://stackoverflow.com/questions/49237787/how-to-hide-login-credentials-in-log-html-file-in-robotframework
-https://github.com/robotframework/robotframework/issues/4537
-https://github.com/Snooz82/robotframework-crypto
+
+- https://forum.robotframework.org/t/secret-handling-using-robot/5417/3
+- https://stackoverflow.com/questions/49237787/how-to-hide-login-credentials-in-log-html-file-in-robotframework
+- https://github.com/robotframework/robotframework/issues/4537
+- https://github.com/Snooz82/robotframework-crypto
 
