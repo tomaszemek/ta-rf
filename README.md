@@ -14,13 +14,16 @@ Preferably use docker to run the whole test execution environment.
 
 3. Set valid API keys in the resources/secrets/APIKey.secret.resource
 
-4. Run the tests using the recommended docker image:
+4. Run the tests
+
+NOTE: the docker image to be created is quite big in size, about 4.5 GB in the end
 
     ```console
-        cd ta-rf
         docker run \
             -v ./results:/opt/robotframework/reports:Z \
             -v ./tests:/opt/robotframework/tests:Z \
+            -v ./resources:/opt/robotframework/resources:Z \
+            -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
             ppodgorsek/robot-framework:latest
     ```
 
