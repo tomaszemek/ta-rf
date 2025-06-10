@@ -1,30 +1,39 @@
 *** Comments ***
 This file holds keywords: blocks of code that performs specialized operations
-As each of these keywords can be reused by multiple tests, they are put here into dedicated file
-    and marked as resource.
+As each of these keywords can be reused by multiple tests, they are put here 
+...    into dedicated file and marked as resource.
 
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/constants/APIURL.resource
+Resource    resources/constants/WeatherURL.resource
 Resource    resources/constants/HTTPStatus.resource
 
-Resource    resources/APIKey.resource
+Resource    resources/WeatherAPIKey.resource
 Resource    resources/Geocoding.resource
 
 *** Keywords ***
-Get weather forecast for city name
+Get Weather Forecast For City Name
     [Arguments]    ${city_name}
 
     ${coordinates}=    Get Coordinates For Location Name    city_name=${CITY_NAME}
-    ${API_KEY}=    Get Random API Key
+
+    ${weather_forecast}=    Get Weather Forecast For Coordinates    ${coordinates}
+
+    RETURN    ${weather_forecast}
+
+
+Get Weather Forecast For Coordinates
+    [Arguments]    ${coordinates}
+
+    ${API_KEY}=    Get Weather API Key
     ${WEATHER_URL_API_VAR}    Set Variable     ?lat=${coordinates}[lat]&lon=${coordinates}[lon]&appid=${API_KEY}
     ${response}=    GET    ${WEATHER_URL_API_BASE}${WEATHER_URL_API_VAR}    expected_status=${HTTP_STATUS_OK}
 
     RETURN    ${response.json()}
 
 
-Extract weather information from forecast
+Extract Weather Information From Forecast
     [Arguments]    ${weather_forecast_response}
 
     ${weather_list}=    Set Variable    ${weather_forecast_response}[weather]

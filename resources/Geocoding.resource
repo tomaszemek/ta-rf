@@ -6,10 +6,10 @@ This file contains keywords that work with Geocoding API subset of the whole Ope
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/constants/APIURL.resource
+Resource    resources/constants/WeatherURL.resource
 Resource    resources/constants/HTTPStatus.resource
 
-Resource    resources/APIKey.resource
+Resource    resources/WeatherAPIKey.resource
 
 
 *** Variables ***
@@ -29,7 +29,7 @@ Get Coordinates For Location Name
 Get Geocoding Data For Location Name
     [Arguments]    ${city_name}=""    ${state_code}=""    ${country_code}="NL"
 
-    ${API_KEY}=    Get Random API Key
+    ${API_KEY}=    Get Weather API Key
     ${GEO_DIRECT_LOCATION_URL_API_VAR}    Set Variable     ?q=${city_name},${state_code},${country_code}&appid=${API_KEY}
     ${response}=    GET    ${GEO_DIRECT_LOCATION_URL_API_BASE}${GEO_DIRECT_LOCATION_URL_API_VAR}    expected_status=${HTTP_STATUS_OK}
 
