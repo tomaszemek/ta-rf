@@ -19,6 +19,7 @@ Preferably use docker to run the whole test execution environment.
     NOTE: the docker image to be created is quite big in size, about 4.5 GB in the end
 
     ```console
+    cd ta-rf
     docker run \
         -v ./results:/opt/robotframework/reports:Z \
         -v ./tests:/opt/robotframework/tests:Z \
