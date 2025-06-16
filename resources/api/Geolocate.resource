@@ -1,10 +1,10 @@
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/constants/GeolocateURL.resource
-Resource    resources/constants/HTTPStatus.resource
+Resource    resources/api/constants/GeolocateURL.resource
+Resource    resources/api/constants/HTTPStatus.resource
 
-Resource    resources/GeolocateAPIKey.resource
+Resource    resources/api/GeolocateAPIKey.resource
 
 *** Variables ***
 

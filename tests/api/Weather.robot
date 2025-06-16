@@ -5,12 +5,12 @@ The requests library is used to send request and return response
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/constants/WeatherURL.resource
-Resource    resources/constants/HTTPStatus.resource
+Resource    resources/api/constants/WeatherURL.resource
+Resource    resources/api/constants/HTTPStatus.resource
 
-Resource    resources/WeatherAPIKey.resource
-Resource    resources/Geocoding.resource
-Resource    resources/Weather.resource
+Resource    resources/api/WeatherAPIKey.resource
+Resource    resources/api/Geocoding.resource
+Resource    resources/api/Weather.resource
 
 Suite Teardown  Delete All Sessions
 
