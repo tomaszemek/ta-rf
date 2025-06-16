@@ -8,11 +8,11 @@ The data driver library is used to turn single test case template into set
 Library    DataDriver
 Test Template    Compare Weather Forecast ID with City Name ID
 
-Resource    resources/constants/WeatherURL.resource
-Resource    resources/constants/HTTPStatus.resource
+Resource    resources/api/constants/WeatherURL.resource
+Resource    resources/api/constants/HTTPStatus.resource
 
-Resource    resources/Geocoding.resource
-Resource    resources/Weather.resource
+Resource    resources/api/Geocoding.resource
+Resource    resources/api/Weather.resource
 
 
 *** Variables ***
