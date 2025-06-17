@@ -25,9 +25,15 @@ Preferably use docker to run the whole test execution environment.
         -v ./tests:/opt/robotframework/tests:Z \
         -v ./resources:/opt/robotframework/resources:Z \
         -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
+        -e BROWSER=chromium
         ppodgorsek/robot-framework:latest
     ```
 5. Test logs and reports can be found in ./results folder
+
+NOTES:
+
+- You can run part of the project by mapping a subfolder, e.g. ./tests/ui only
+- Supported values for BROWSER are chromium, firefox and webkit
 
 ## Manual
 

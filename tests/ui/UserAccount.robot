@@ -16,8 +16,9 @@ Test Setup    New Context
 Test Teardown    Close Context
 Suite Teardown    Close Browser
 
+
 *** Variables ***
-${BROWSER}    chromium
+${BROWSER}    %{BROWSER}
 ${HEADLESS}    False
 
 
