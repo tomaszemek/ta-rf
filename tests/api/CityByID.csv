@@ -1,5 +1,5 @@
 *** Test Cases ***;${CITY_NAME};${CITY_ID}
-;Amsterdam;2759794
-;Rotterdam;2747891
-;Den Haag;2747373
-;Groningen;2755251
+Verify City ID for Amsterdam;Amsterdam;2759794
+Verify City ID for Rotterdam;Rotterdam;2747891
+Verify City ID for Den Haag;Den Haag;2747373
+Verify City ID for Groningen;Groningen;2755251
