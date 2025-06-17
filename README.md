@@ -1,6 +1,6 @@
 # ta-rf
 
-Simple Test Automation project demonstrating use of Robot Framework for API and acceptance testing
+Simple Test Automation project demonstrating use of Robot Framework for acceptance testing on API and UI flows
 
 # Usage
 
@@ -33,13 +33,19 @@ Preferably use docker to run the whole test execution environment.
 
 1. Python
 
-    System wide Python interpreter per your OS specific instruction
+    Install Python interpreter as per your OS specific instruction, recommended latest release
 
-2. Clone the ta-rf repo
+2. Node.js (for UI tests)
 
-3. Virtual environment
+    Install Node.js environment as per your OS specific instructions, recommended latest current
 
-    Crate one to isolate local runtime environment from interfering with other ones:
+3. Clone the ta-rf repo
+
+4. Python virtual environment
+
+    This is recommended to do to support multiple runtime evironments with different prerequisities.
+    
+    Create one to isolate local runtime environment from interfering with other ones:
 
     ```console
     cd ta-rf
@@ -48,21 +54,26 @@ Preferably use docker to run the whole test execution environment.
 
 4. Robot framework & libraries
 
-    Activate the virtual environment and install required libraries into it:
+    Activate the virtual environment and install required libraries into it. Then initialize Browser library.
 
     ```console
     cd ta-rf
-    source ./.venv/bin/activate
+    (Linux:)    source ./.venv/bin/activate
+    (Windows Powershell:)   .\.venv\Scripts\Activate.ps1
+    (Windows cmd:)  .\.venv\Scripts\activate.bat
     pip install -r requirements.txt
+    rfbrowser init
     ```
 
-5. VS Code settings - Robocorp plugin
+5. VS Code settings - RobotCode plugin
 
-    Enable resource path resolution from within the IDE:
+    Use RobotCode plugin for Robot Framework integration within Code
+    
+    Enable resource path resolution from within the IDE (File - Preferences - Settings):
 
     ```console
     "robotcode.robot.pythonPath": [
-        "./"
+        "."
         ],
     ```
 
@@ -73,8 +84,8 @@ Preferably use docker to run the whole test execution environment.
 
 # Documentation
 
-## RF Requests library
-https://docs.robotframework.org/docs/different_libraries/requests
+## Robot Framework
+https://docs.robotframework.org/docs
 
 
 # TODO

@@ -1,0 +1,6 @@
+*** Test Cases ***;${USER_FIRST_NAME};${USER_LAST_NAME};${USER_ROLE};${USER_EMAIL};${USER_PASSWORD}
+Valid Account Admin;John;Doe;admin;admin@practicesoftwaretesting.com;welcome01
+Valid Account User1;Jane;Doe;user;customer@practicesoftwaretesting.com;welcome01
+Valid Account User2;Jack;Howe;user;customer2@practicesoftwaretesting.com;welcome01
+Valid Account User3;Bob;Smith;user;customer3@practicesoftwaretesting.com;pass123
+Invalid Account User4;Paul;Baker;unknown;paul@practicesoftwaretesting.com;pass123
