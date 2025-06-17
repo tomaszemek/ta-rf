@@ -31,8 +31,9 @@ Preferably use docker to run the whole test execution environment.
     cd ta-rf
     docker run \
         -v ./results:/opt/robotframework/reports:Z \
-        -v ./suites:/opt/robotframework/tests:Z \
+        -v ./suites:/opt/robotframework/suites:Z \
         -v ./resources:/opt/robotframework/resources:Z \
+        -e ROBOT_TESTS_DIR="/opt/robotframework/suites" \
         -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
         -e BROWSER=chromium
         ppodgorsek/robot-framework:latest
