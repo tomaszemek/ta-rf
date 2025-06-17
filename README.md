@@ -83,15 +83,15 @@ NOTES:
         ],
     ```
 
-6. Set valid API keys in the WeatherAPIKey.secret.resource and GeolocateAPIKey.secret.resource
-
-7. Set BROWSER for test execution via VS Code
+6. Set BROWSER for test execution via VS Code
 
     In order to support execution within Docker, environment variables are used to carry information.
     However during execution within VS Code, those need to be set as well.
     Best way to achieve that is make use of the RobotCode features and set the variable within 
     the extension preferences file robot.toml.
     In case you already have that file, just merge the contents.
+
+7. Set valid API keys in the WeatherAPIKey.secret.resource and GeolocateAPIKey.secret.resource
 
 8. Run the tests from VS Code or from terminal
 
