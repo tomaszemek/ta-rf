@@ -20,7 +20,7 @@ Preferably use docker to run the whole test execution environment.
     
     - The docker image to be created is quite big in size, about 4.5 GB in the end.
     - You can run part of the project by mapping a subfolder, e.g. ./suites/ui only.
-    - Supported values for BROWSER are chromium, firefox and webkit (limitation of Playwright).
+    - Supported values for BROWSER are chromium and firefox
     - The example command uses Linux path format
     - For Docker execution on Windows, the path specifications (values for the -v arguments) 
         might need to be possibly adapted for backslash instead; 
