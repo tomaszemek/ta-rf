@@ -14,30 +14,54 @@ Preferably use docker to run the whole test execution environment.
 
 3. Set valid API keys in the WeatherAPIKey.secret.resource and GeolocateAPIKey.secret.resource
 
-4. Run the tests
+4. Run the tests 
 
     NOTES: 
     
     - The docker image to be created is quite big in size, about 4.5 GB in the end.
     - You can run part of the project by mapping a subfolder, e.g. ./suites/ui only.
-    - Supported values for BROWSER are chromium and firefox
-    - The example command uses Linux path format
+    - Supported values for BROWSER are chromium and firefox.
+    - The example command uses Linux path format.
+    - The example make use of environment variables which are explicitly set.
     - For Docker execution on Windows, the path specifications (values for the -v arguments) 
         might need to be possibly adapted for backslash instead; 
         however as Docker image runs Linux internally, part of the paths (Docker facing) 
         still need to use Linux path format.
-    
+
+    4.1 Option 1 - Robot single threaded execution
+
     ```console
     cd ta-rf
     docker run \
-        -v ./results:/opt/robotframework/reports:Z \
         -v ./suites:/opt/robotframework/suites:Z \
         -v ./resources:/opt/robotframework/resources:Z \
+        -v ./results:/opt/robotframework/results:Z \
         -e ROBOT_TESTS_DIR="/opt/robotframework/suites" \
+        -e ROBOT_REPORTS_DIR="/opt/robotframework/results" \
         -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
         -e BROWSER=chromium
         ppodgorsek/robot-framework:latest
     ```
+
+    4.2 Option 2 - Pabot parallel multi threaded execution
+
+    Here example with 4 execution pool threads and Chromium.
+
+    ```console
+    cd ta-rf
+    docker run \
+        -v ./suites:/opt/robotframework/suites:Z \
+        -v ./resources:/opt/robotframework/resources:Z \
+        -v ./results:/opt/robotframework/results:Z \
+        -e ROBOT_TESTS_DIR="/opt/robotframework/suites" \
+        -e ROBOT_REPORTS_DIR="/opt/robotframework/results" \
+        -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
+        -e ROBOT_THREADS=4 \
+        -e PABOT_OPTIONS="--testlevelsplit --pabotlib" \
+        -e BROWSER=chromium
+        ppodgorsek/robot-framework:latest
+    ```
+
 5. Test logs and reports can be found in ./results folder
 
 
@@ -45,11 +69,11 @@ Preferably use docker to run the whole test execution environment.
 
 1. Python
 
-    Install Python interpreter as per your OS specific instruction, recommended latest release
+    Install Python interpreter as per your OS specific instruction, recommended latest release.
 
 2. Node.js (for UI tests)
 
-    Install Node.js environment as per your OS specific instructions, recommended latest current
+    Install Node.js environment as per your OS specific instructions, recommended latest current.
 
 3. Clone the ta-rf repo
 
@@ -79,7 +103,7 @@ Preferably use docker to run the whole test execution environment.
 
 5. VS Code settings - RobotCode plugin
 
-    Use RobotCode plugin for Robot Framework integration within Code
+    Use RobotCode plugin for Robot Framework integration within Code.
     
     Enable resource path resolution from within the IDE (File - Preferences - Settings):
 
@@ -101,11 +125,57 @@ Preferably use docker to run the whole test execution environment.
 
 8. Run the tests from VS Code or from terminal
 
+    NOTES: 
+    
+    - You can run part of the project by mapping a subfolder, e.g. ./suites/ui only.
+    - Supported values for BROWSER are chromium and firefox.
+    - The example command uses Linux path format.
+    - The example make use of environment variables which are explicitly set.
+
+    8.1 Option 1 - Robot single threaded execution
+
+    ```console
+    cd ta-rf
+    export PYTHONPATH=.:$PYTHONPATH
+    export BROWSER=chromium
+    export ROBOT_RESULTS=./results
+    robot --outputDir $ROBOT_RESULTS .
+    ```
+
+    8.2 Option 2 - Pabot parallel multi threaded execution
+
+    ```console
+    cd ta-rf
+    export PYTHONPATH=.:$PYTHONPATH
+    export BROWSER=chromium
+    export ROBOT_THREADS=4
+    export ROBOT_RESULTS=./results
+    pabot --testlevelsplit --pabotlib --processes $ROBOT_THREADS --outputDir $ROBOT_RESULTS .
+    ```
+
 
 # Documentation
 
 ## Robot Framework
 https://docs.robotframework.org/docs
+
+## Requests Library
+https://docs.robotframework.org/docs/different_libraries/requests
+
+## Browser Library
+https://docs.robotframework.org/docs/different_libraries/browser
+
+## Data Driven Tests
+https://docs.robotframework.org/docs/testcase_styles/datadriven
+
+## Pabot Parallel Robot Framework Execution
+https://pabot.org/
+
+## Docker Robot Framework image
+https://github.com/ppodgorsek/docker-robot-framework
+
+## Practice Software Testing
+https://github.com/testsmith-io/practice-software-testing
 
 
 # TODO

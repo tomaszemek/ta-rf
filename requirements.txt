@@ -2,3 +2,4 @@ robotframework
 robotframework-datadriver
 robotframework-requests
 robotframework-browser
+robotframework-pabot
