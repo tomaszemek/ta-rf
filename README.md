@@ -14,15 +14,24 @@ Preferably use docker to run the whole test execution environment.
 
 3. Set valid API keys in the WeatherAPIKey.secret.resource and GeolocateAPIKey.secret.resource
 
-4. Run the tests:
+4. Run the tests
 
-    NOTE: the docker image to be created is quite big in size, about 4.5 GB in the end
-
+    NOTES: 
+    
+    - The docker image to be created is quite big in size, about 4.5 GB in the end.
+    - You can run part of the project by mapping a subfolder, e.g. ./suites/ui only.
+    - Supported values for BROWSER are chromium, firefox and webkit (limitation of Playwright).
+    - The example command uses Linux path format
+    - For Docker execution on Windows, the path specifications (values for the -v arguments) 
+        might need to be possibly adapted for backslash instead; 
+        however as Docker image runs Linux internally, part of the paths (Docker facing) 
+        still need to use Linux path format.
+    
     ```console
     cd ta-rf
     docker run \
         -v ./results:/opt/robotframework/reports:Z \
-        -v ./tests:/opt/robotframework/tests:Z \
+        -v ./suites:/opt/robotframework/tests:Z \
         -v ./resources:/opt/robotframework/resources:Z \
         -e ROBOT_OPTIONS="--pythonpath /opt/robotframework" \
         -e BROWSER=chromium
@@ -30,10 +39,6 @@ Preferably use docker to run the whole test execution environment.
     ```
 5. Test logs and reports can be found in ./results folder
 
-NOTES:
-
-- You can run part of the project by mapping a subfolder, e.g. ./tests/ui only
-- Supported values for BROWSER are chromium, firefox and webkit
 
 ## Manual
 
