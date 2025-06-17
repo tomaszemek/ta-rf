@@ -13,6 +13,21 @@ ${USER_ROLE_ADMIN}    admin
 ${USER_ROLE_USER}    user
 ${USER_ROLE_UNKNOWN}    unknown
 
+# Locators
+${LOCATOR_LINK_SIGN_IN}    [data-test="nav-sign-in"]
+${LOCATOR_INPUT_EMAIL}    id=email
+${LOCATOR_INPUT_PASSWORD}    id=password
+${LOCATOR_BUTTON_LOGIN}    css=.btnSubmit
+${LOCATOR_TEXT_LOGIN_FAILED}    css=.help-block
+${LOCATOR_TITLE_ACCOUNT_PAGE}    h1
+${LOCATOR_LINK_FULL_NAME}    id=menu
+
+# Labels and texts and titles
+${TITLE_LOGIN}    Login
+${TITLE_ADMIN_ACCOUNT_PAGE}    Sales over the years
+${TITLE_USER_ACCOUNT_PAGE}    My account
+${TEXT_LOGIN_FAILED}    Invalid email or password
+
 
 *** Keywords ***
 User Shall Be Able To Log In
@@ -23,6 +38,12 @@ User Shall Be Able To Log In
    
     # Open New Browser Page
     New Page
+
+    # Start at Home
+    Go To    ${SUT_URL_HOME}
+
+    # User shall not be logged in
+    User Full Name Shall Not Be Visible
 
     # Navigate to Login Page
     Open Login Page
@@ -40,38 +61,46 @@ User Shall Be Able To Log In
 
 Open Login Page
 
-    # Open Login Page:
-    Go To    ${SUT_URL_LOGIN}
-
+    Click    ${LOCATOR_LINK_SIGN_IN}
+    
     # Verify that it is opened
-    Get Title    contains    Login
+    Get Title    contains    ${TITLE_LOGIN}
+
+    Wait For Elements State    ${LOCATOR_BUTTON_LOGIN}    visible
 
     RETURN
 
 Enter Credentials And Login
     [Arguments]    ${user_email}    ${user_password}
 
-    Fill Text    id=email    ${user_email}
-    Fill Text    id=password    ${user_password}
+    Fill Text    ${LOCATOR_INPUT_EMAIL}    ${user_email}
+    Fill Text    ${LOCATOR_INPUT_PASSWORD}    ${user_password}
 
-    Click    css=.btnSubmit
+    Click    ${LOCATOR_BUTTON_LOGIN}
 
     RETURN
 
 User Shall Be Logged In
     [Arguments]    ${user_first_name}    ${user_last_name}    ${user_role}
 
+    # For each user role the expected outcome is different
     IF    "${user_role}" == "${USER_ROLE_ADMIN}"
 
-        Verify Admin Account Page Is Opened
+        Account Page Shall Be Opened    ${TITLE_ADMIN_ACCOUNT_PAGE}
 
+        User Full Name Shall Be Visible    ${user_first_name}    ${user_last_name}
+        
     ELSE IF    "${user_role}" == "${USER_ROLE_USER}"
 
-        Verify User Account Page Is Opened    ${user_first_name}    ${user_last_name}
+        Account Page Shall Be Opened    ${TITLE_USER_ACCOUNT_PAGE}
+
+        User Full Name Shall Be Visible    ${user_first_name}    ${user_last_name}
 
     ELSE IF    "${user_role}" == "${USER_ROLE_UNKNOWN}"
 
-        Verify User Login Failed
+        User Login Shall Have Failed
+
+        User Full Name Shall Not Be Visible
 
     ELSE 
 
@@ -81,27 +110,31 @@ User Shall Be Logged In
 
     RETURN
 
+Account Page Shall Be Opened
+    [Arguments]    ${expected_title}
 
-Verify Admin Account Page Is Opened
-
-    Get Text    h1    equals    Sales over the years
+    Get Text    ${LOCATOR_TITLE_ACCOUNT_PAGE}    equals    ${expected_title}
 
     RETURN
 
-Verify User Account Page Is Opened
+User Login Shall Have Failed
+    
+    Get Text    ${LOCATOR_TEXT_LOGIN_FAILED}    equals    ${TEXT_LOGIN_FAILED}
+
+    RETURN
+
+User Full Name Shall Be Visible
     [Arguments]    ${user_first_name}    ${user_last_name}
 
-    Get Text    h1    equals    My account
-
     ${expected_full_name}=    Set Variable    ${user_first_name} ${user_last_name}
-    ${actual_full_name}=    Get Text    id=menu
+    ${actual_full_name}=    Get Text    ${LOCATOR_LINK_FULL_NAME}
         
     Should Be Equal As Strings    ${actual_full_name.strip()}    ${expected_full_name}
 
-    RETURN
+User Full Name Shall Not Be Visible
 
-Verify User Login Failed
-    
-    Get Text    css=.help-block    equals    Invalid email or password
+    Wait For Elements State    ${LOCATOR_LINK_SIGN_IN}    visible
 
     RETURN
+
+
