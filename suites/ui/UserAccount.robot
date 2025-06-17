@@ -23,7 +23,7 @@ ${HEADLESS}    False
 
 
 *** Test Cases ***
-Registered Users Can Login    Default    UserData
+Registered Users Shall Be Able To Login    Default    UserData
 
 
 *** Keywords ***

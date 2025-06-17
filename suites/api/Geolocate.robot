@@ -19,7 +19,7 @@ Suite Teardown  Delete All Sessions
 
 
 *** Test Cases ***
-Weather for current location
+Weather For Current Location Shall Be Received
     
     ${current_ip_address}=    Determine Current IP Address
 

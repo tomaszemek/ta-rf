@@ -19,7 +19,7 @@ Resource    resources/api/Weather.resource
 
 
 *** Test Cases ***
-Weather Forecast City ID Matches Requested City Name    Default    UserData
+Received City ID Shall Match Requested City Name    Default    UserData
 
 
 *** Keywords ***
