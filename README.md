@@ -21,7 +21,6 @@ Preferably use docker to run the whole test execution environment.
     - The docker image to be created is quite big in size, about 4.5 GB in the end.
     - You can run part of the project by mapping a subfolder, e.g. ./suites/ui only.
     - Supported values for BROWSER are chromium and firefox.
-    - The example command uses Linux path format.
     - The example make use of environment variables which are explicitly set.
     - For Docker execution on Windows, the path specifications (values for the -v arguments) 
         might need to be possibly adapted for backslash instead; 
@@ -31,6 +30,8 @@ Preferably use docker to run the whole test execution environment.
     4.1 Option 1 - Robot single threaded execution
 
     ```console
+    Linux:
+
     cd ta-rf
     docker run \
         -v ./suites:/opt/robotframework/suites:Z \
@@ -48,6 +49,8 @@ Preferably use docker to run the whole test execution environment.
     Here example with 4 execution pool threads and Chromium.
 
     ```console
+    Linux:
+
     cd ta-rf
     docker run \
         -v ./suites:/opt/robotframework/suites:Z \
@@ -135,22 +138,43 @@ Preferably use docker to run the whole test execution environment.
     8.1 Option 1 - Robot single threaded execution
 
     ```console
+    Linux:
+
     cd ta-rf
-    export PYTHONPATH=.:$PYTHONPATH
+    export PYTHONPATH=.
     export BROWSER=chromium
     export ROBOT_RESULTS=./results
     robot --outputDir $ROBOT_RESULTS .
+
+    Windows Power Shell:
+
+    cd ta-rf
+    $env:PYTHONPATH = "."
+    $env:BROWSER = "chromium"
+    $env:ROBOT_RESULTS = ".\results"
+    robot --outputDir $env:ROBOT_RESULTS .
     ```
 
     8.2 Option 2 - Pabot parallel multi threaded execution
 
     ```console
+    Linux:
+
     cd ta-rf
-    export PYTHONPATH=.:$PYTHONPATH
+    export PYTHONPATH=.
     export BROWSER=chromium
     export ROBOT_THREADS=4
     export ROBOT_RESULTS=./results
     pabot --testlevelsplit --pabotlib --processes $ROBOT_THREADS --outputDir $ROBOT_RESULTS .
+
+    Windows Power Shell:
+
+    cd ta-rf
+    $env:PYTHONPATH = "."
+    $env:BROWSER = "chromium"
+    $env:ROBOT_RESULTS = ".\results"
+    $env:ROBOT_THREADS = 4
+    pabot --testlevelsplit --pabotlib --processes $env:ROBOT_THREADS --outputDir $env:ROBOT_RESULTS .
     ```
 
 
