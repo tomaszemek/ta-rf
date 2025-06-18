@@ -5,7 +5,7 @@ It uses the Browser library and assumes Browser instance has been already create
 *** Settings ***
 Library    Browser
 
-Resource    resources/ui/constants/SUTURL.resource
+Resource    resources/pst/constants/SUTURL.resource
 
 *** Variables ***
 # Describe user account types

@@ -6,11 +6,11 @@ Various third party sites are used for intermediate resolve steps
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/api/constants/GeolocateURL.resource
-Resource    resources/api/constants/HTTPStatus.resource
+Resource    resources/weather/constants/GeolocateURL.resource
+Resource    resources/weather/constants/HTTPStatus.resource
 
-Resource    resources/api/Geolocate.resource
-Resource    resources/api/Weather.resource
+Resource    resources/weather/Geolocate.resource
+Resource    resources/weather/Weather.resource
 
 Suite Teardown  Delete All Sessions
 

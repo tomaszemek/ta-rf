@@ -8,7 +8,7 @@ The data driver library is used to turn single test case template into set
 Library    DataDriver
 Test Template    Login With Email And Password
 
-Resource    resources/ui/Login.resource
+Resource    resources/pst/ui/Login.resource
 
 Library    Browser
 Suite Setup    New Browser    browser=${BROWSER}    headless=${HEADLESS}
