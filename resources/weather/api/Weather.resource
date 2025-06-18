@@ -6,11 +6,11 @@ As each of these keywords can be reused by multiple tests, they are put here
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/weather/constants/WeatherURL.resource
-Resource    resources/weather/constants/HTTPStatus.resource
+Resource    resources/weather/api/constants/WeatherURL.resource
+Resource    resources/weather/api/constants/HTTPStatus.resource
 
-Resource    resources/weather/WeatherAPIKey.resource
-Resource    resources/weather/Geocoding.resource
+Resource    resources/weather/api/WeatherAPIKey.resource
+Resource    resources/weather/api/Geocoding.resource
 
 *** Keywords ***
 Get Weather Forecast For City Name

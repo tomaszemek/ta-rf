@@ -6,10 +6,10 @@ This file contains keywords that work with Geocoding API subset of the whole Ope
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/weather/constants/WeatherURL.resource
-Resource    resources/weather/constants/HTTPStatus.resource
+Resource    resources/weather/api/constants/WeatherURL.resource
+Resource    resources/weather/api/constants/HTTPStatus.resource
 
-Resource    resources/weather/WeatherAPIKey.resource
+Resource    resources/weather/api/WeatherAPIKey.resource
 
 
 *** Variables ***

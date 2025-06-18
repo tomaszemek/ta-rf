@@ -2,7 +2,7 @@
 This module makes sure that the available Weather API keys are all used in a random manner
 
 *** Settings ***
-Resource    resources/weather/secrets/WeatherAPIKey.secret.resource
+Resource    resources/weather/api/secrets/WeatherAPIKey.secret.resource
 
 *** Keywords ***
 Get Weather API Key

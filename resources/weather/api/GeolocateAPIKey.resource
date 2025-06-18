@@ -2,7 +2,7 @@
 This module makes sure that the available Weather API keys are all used in a random manner
 
 *** Settings ***
-Resource    resources/weather/secrets/GeolocateAPIKey.secret.resource
+Resource    resources/weather/api/secrets/GeolocateAPIKey.secret.resource
 
 *** Keywords ***
 Get Geolocate API Key

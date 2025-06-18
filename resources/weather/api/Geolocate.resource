@@ -1,10 +1,10 @@
 *** Settings ***
 Library    RequestsLibrary
 
-Resource    resources/weather/constants/GeolocateURL.resource
-Resource    resources/weather/constants/HTTPStatus.resource
+Resource    resources/weather/api/constants/GeolocateURL.resource
+Resource    resources/weather/api/constants/HTTPStatus.resource
 
-Resource    resources/weather/GeolocateAPIKey.resource
+Resource    resources/weather/api/GeolocateAPIKey.resource
 
 *** Variables ***
 
